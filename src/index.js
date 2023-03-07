@@ -7,51 +7,14 @@ import Quote from "./Quotes";
 import Button from "./Button";
 
 const App = () => {
-    // const [quote, setQuote] = React.useState([]);
-    // const [isLoading, setIsLoading] = React.useState(false);
-    // const [err, setErr] = React.useState("");
-
-    // const fetchQuote = async () => {
-    //     setIsLoading(false);
-
-    //     try {
-    //         const response = await fetch("https://api.quotable.io/random", {
-    //             method: "GET",
-    //             headers: {
-    //                 Accept: "application/json",
-    //             },
-    //         });
-
-    //         if (!response.ok) {
-    //             throw new Error(`Error! status: ${response.status}`);
-    //         }
-
-    //         const result = await response.json();
-
-    //         console.log("result is: ", JSON.stringify(result, null, 4));
-
-    //         setQuote(result);
-    //     } catch (err) {
-    //         setErr(err.message);
-    //     } finally {
-    //         setIsLoading(true);
-    //     }
-    // };
-
-    // React.useEffect(() => {
-    //     fetchQuote();
-    // }, []);
-
-    // const handleClick = async () => {
-    //     fetchQuote();
-    // };
-
     const [quote, setQuote] = React.useState([]);
+    const [color, setColor] = React.useState("#000000");
 
     const fetchQuote = async () => {
         const response = await fetch("https://api.quotable.io/random");
         const randomQuote = await response.json();
         setQuote(randomQuote);
+        setColor("#" + Math.floor(Math.random() * 16777215).toString(16));
     };
 
     React.useEffect(() => {
@@ -63,9 +26,13 @@ const App = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container" style={{ backgroundColor: color }}>
             <wrapper id="quote-box">
-                <Quote content={quote.content} author={quote.author} />
+                <Quote
+                    content={quote.content}
+                    author={quote.author}
+                    color={color}
+                />
                 <div id="footer">
                     <a href="/" id="tweet-quote">
                         <FontAwesomeIcon icon={faTwitter} />

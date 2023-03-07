@@ -1,27 +1,28 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Spirax", cursive;
 }
 .container {
-    background-color: burlywood;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: background-color 0.5s ease-in-out;
 }
 
 #quote-box {
-    background-color: antiquewhite;
+    background-color: white;
     padding: 25px 50px;
     border-radius: 3px;
-    width: 500px;
+    max-width: 560px;
 }
 
 #text {
+    font-size: x-large;
     margin-bottom: 20px;
-    color: brown;
+    color: black;
 }
 
 #author {
@@ -40,17 +41,16 @@ button {
     border-style: none;
     height: 40px;
     width: 150px;
-    background-color: brown;
+    background-color: black;
     color: antiquewhite;
     font-size: large;
     cursor: pointer;
-    font-family: sans-serif;
 }
 
 #tweet-quote {
     width: 40px;
     height: 40px;
-    background-color: brown;
+    background-color: black;
     display: grid;
     place-content: center;
     color: white;
@@ -66,4 +66,12 @@ button {
     margin-top: 10px;
     color: black;
     font-weight: 500;
+}
+
+.quote_icon {
+    margin-right: 15px;
+}
+
+.main {
+    transition: opacity 0.5s ease-in-out;
 }
