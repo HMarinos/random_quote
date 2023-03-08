@@ -8,13 +8,34 @@ import Button from "./Button";
 
 const App = () => {
     const [quote, setQuote] = React.useState([]);
-    const [color, setColor] = React.useState("#000000");
+    const [color, setColor] = React.useState();
 
     const fetchQuote = async () => {
         const response = await fetch("https://api.quotable.io/random");
         const randomQuote = await response.json();
+
+        const colors = [
+            "#edc351",
+            "#c46554",
+            "#eb7328",
+            "#a8d645",
+            "#45d67c",
+            "#326144",
+            "#74cfbb",
+            "#91aeb5",
+            "#8185de",
+            "#ae75d9",
+            "#db70a7",
+        ];
+
         setQuote(randomQuote);
-        setColor("#" + Math.floor(Math.random() * 16777215).toString(16));
+
+        let randomColor = colors[Math.floor(Math.random() * colors.length)];
+        while (randomColor === color) {
+            randomColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        setColor(randomColor);
     };
 
     React.useEffect(() => {
