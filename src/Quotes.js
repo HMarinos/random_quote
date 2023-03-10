@@ -5,7 +5,7 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 export default function Quote(props) {
     return (
         <div className="main">
-            <h1 id="text">
+            <h1 id="text" key={props.content}>
                 <i className="quote_icon">
                     <FontAwesomeIcon icon={faQuoteLeft} />
                 </i>
