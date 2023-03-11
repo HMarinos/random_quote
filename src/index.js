@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import * as ReactBootstrap from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import "./index.css";
 import Quote from "./Quotes";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
     const [quote, setQuote] = React.useState([]);
@@ -14,6 +16,7 @@ const App = () => {
         const response = await fetch("https://api.quotable.io/random");
         const randomQuote = await response.json();
         setQuote(randomQuote);
+        setLeading(true);
 
         const colors = [
             "#edc351",
@@ -46,28 +49,41 @@ const App = () => {
     };
 
     return (
-        <div className="container" style={{ backgroundColor: color }}>
-            <wrapper id="quote-box">
-                <Quote
-                    content={quote.content}
-                    author={quote.author}
-                    color={color}
-                />
-                <div id="footer">
-                    <a
-                        href="/"
-                        id="tweet-quote"
-                        onClick={(event) => event.preventDefault()}
-                    >
-                        <FontAwesomeIcon icon={faTwitter} />
-                    </a>
-                    <button onClick={handleClick} id="new-quote">
-                        New Quote
-                    </button>
+        <>
+            {loading ? (
+                <div
+                    className="app_container"
+                    style={{ backgroundColor: color }}
+                >
+                    <wrapper id="quote-box">
+                        <Quote
+                            content={quote.content}
+                            author={quote.author}
+                            color={color}
+                        />
+                        <div id="footer">
+                            <a
+                                href="/"
+                                id="tweet-quote"
+                                onClick={(event) => event.preventDefault()}
+                            >
+                                <FontAwesomeIcon icon={faTwitter} />
+                            </a>
+                            <button onClick={handleClick} id="new-quote">
+                                New Quote
+                            </button>
+                        </div>
+                    </wrapper>
+                    <p className="comment">Made by me</p>
                 </div>
-            </wrapper>
-            <p className="comment">Made by me</p>
-        </div>
+            ) : (
+                <ReactBootstrap.Spinner
+                    animation="border"
+                    role="status"
+                    style={{ width: "3rem", height: "3rem" }}
+                />
+            )}
+        </>
     );
 };
 

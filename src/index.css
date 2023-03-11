@@ -3,13 +3,15 @@
     box-sizing: border-box;
     font-family: "Spirax", cursive;
 }
-.container {
+.app_container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     transition: background-color 0.5s ease-in-out;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #quote-box {
@@ -83,4 +85,13 @@ button:hover {
 
 .quote_icon {
     margin-right: 15px;
+}
+
+.spinner-border {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
