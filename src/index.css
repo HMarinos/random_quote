@@ -3,6 +3,10 @@
     box-sizing: border-box;
     font-family: "Spirax", cursive;
 }
+#author a {
+    text-decoration: none;
+    background-color: transparent;
+}
 .app_container {
     height: 100vh;
     display: flex;
@@ -40,6 +44,7 @@
 #author {
     display: flex;
     float: right;
+    font-size: larger;
 }
 
 #footer {
@@ -58,6 +63,10 @@ button {
     font-size: large;
     cursor: pointer;
 }
+
+#new-quote {
+    border-radius: 5px;
+}
 button:hover {
     background-color: #2b2b2b;
 }
@@ -73,8 +82,15 @@ button:hover {
     border-radius: 5px;
 }
 
-#author {
-    font-size: larger;
+#facebook-quote {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    display: grid;
+    place-content: center;
+    color: white;
+    font-size: large;
+    border-radius: 5px;
 }
 
 .comment {

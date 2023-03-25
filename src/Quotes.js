@@ -11,8 +11,19 @@ export default function Quote(props) {
                 </i>
                 {props.content}
             </h1>
-            <p style={{ color: props.color }} id="author">
-                -{props.author}
+            <p id="author">
+                <a
+                    style={{
+                        color: props.color,
+                        borderBottom: `2px solid ${props.color}`,
+                    }}
+                    href={`https://en.wikipedia.org/wiki/${props.author}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Search wikipedia"
+                >
+                    -{props.author}
+                </a>
             </p>
         </div>
     );
