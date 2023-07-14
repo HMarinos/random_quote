@@ -1,4 +1,4 @@
-import React from "react";
+
 import ReactDOM from "react-dom";
 import * as ReactBootstrap from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import "./index.css";
 import Quote from "./Quotes";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState, useEffect } from 'react';
 
 const App = () => {
     const [quote, setQuote] = React.useState([]);
